@@ -1,0 +1,6 @@
+---
+- name: "Installation de Docker"
+  import_playbook: docker.yml
+
+- name: "Déploiement du container Mario"
+  import_playbook: mario.yml

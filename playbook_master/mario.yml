@@ -1,0 +1,17 @@
+---
+- name: "Pull and start Docker images"
+  hosts: prod
+  become: true
+  tasks:
+    - name: "Pull pengbai/docker-supermario"
+      docker_image:
+        name: "pengbai/docker-supermario"
+        source: pull
+    - name: "Launch the docker-supermario container"
+      docker_container:
+        image: "pengbai/docker-supermario"
+        name: "docker-supermario"
+        state: started
+        ports:
+          - 8080:8080
+
